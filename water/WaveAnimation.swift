@@ -29,7 +29,7 @@ struct WaveAnimation: View {
                     .scaledToFit()
                     .frame(width: 120)
                     .offset(x:-230, y: 330 + floatOffsetSmall)
-                    .opacity(0.3)
+                    .opacity(0.1)
                     .scaleEffect(x:-1)
                 
 
@@ -39,7 +39,7 @@ struct WaveAnimation: View {
                     .scaledToFit()
                     .frame(width: 120)
                     .offset(x:-290, y: 380 + floatOffsetBig)
-                    .opacity(0.3)
+                    .opacity(0.1)
 
 
                 //Medium
@@ -48,7 +48,7 @@ struct WaveAnimation: View {
                     .scaledToFit()
                     .frame(width: 90)
                     .offset(x:20, y: 390 + floatOffsetSmall)
-                    .opacity(0.3)
+                    .opacity(0.1)
 
                 
                 Image("bub-med")
@@ -56,7 +56,7 @@ struct WaveAnimation: View {
                     .scaledToFit()
                     .frame(width: 90)
                     .offset(x:-315, y: 90 + floatOffsetMedium)
-                    .opacity(0.3)
+                    .opacity(0.1)
 
 
                 //Short
@@ -65,7 +65,7 @@ struct WaveAnimation: View {
                     .scaledToFit()
                     .frame(width: 70)
                     .offset(x: -290, y: -180 + floatOffsetSmall)
-                    .opacity(0.8)
+                    .opacity(0.1)
 
                 
                 Image("bub-small")
@@ -73,7 +73,7 @@ struct WaveAnimation: View {
                     .scaledToFit()
                     .frame(width: 70)
                     .offset(x: 320, y: -50 + floatOffsetBig)
-                    .opacity(0.8)
+                    .opacity(0.1)
 
                 
                 Image("bub-small")
@@ -81,7 +81,7 @@ struct WaveAnimation: View {
                     .scaledToFit()
                     .frame(width: 70)
                     .offset(x: 290, y: 210 + floatOffsetSmall)
-                    .opacity(0.8)
+                    .opacity(0.1)
 
                 
                 Image("bub-small")
@@ -89,7 +89,7 @@ struct WaveAnimation: View {
                     .scaledToFit()
                     .frame(width: 70)
                     .offset(x: -100, y: 230 + floatOffsetBig)
-                    .opacity(0.8)
+                    .opacity(0.2)
 
                 
                 Image("bub-small")
@@ -97,7 +97,7 @@ struct WaveAnimation: View {
                     .scaledToFit()
                     .frame(width: 70)
                     .offset(x: 230, y: 480 + floatOffsetSmall)
-                    .opacity(0.8)
+                    .opacity(0.2)
 
             }
         }

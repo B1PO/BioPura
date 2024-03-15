@@ -52,7 +52,9 @@ struct SIS1: View {
     
     var body: some View {
         ZStack {
+            
             Color(red: 91/255, green: 163/255, blue: 242/255).ignoresSafeArea()
+            
             Text("ARMA TU SISTEMA")
                 .foregroundColor(.white)
                 .font(.custom("Montserrat-Bold", size: 47))

@@ -21,13 +21,15 @@ struct ActiveCameraView: View {
 
             if showButton {
                 Button(action: {
-                    self.showMonitorDetails.toggle()
+                    withAnimation(.spring()) {
+                        self.showMonitorDetails.toggle()
+                    }
                 }) {
                     Circle()
                         .fill(Color.white)
                         .shadow(radius: 20)
                         .frame(width: 130, height: 130)
-                        .overlay(Image( "Logo").resizable().scaledToFit().frame(width: 100).foregroundColor(.white))
+                        .overlay(Image("Logo").resizable().scaledToFit().frame(width: 100).foregroundColor(.white))
                 }
                 .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
                 .transition(.scale)
@@ -40,36 +42,35 @@ struct ActiveCameraView: View {
                     .frame(width: 450)
                     .overlay(
                         VStack {
-                            // Botón para cerrar el primer popup
                             Circle()
                                 .fill(Color.red)
                                 .frame(width: 50, height: 50)
-                                .overlay(Image("x")
-                                    .resizable().scaledToFit().frame(width: 20))
+                                .overlay(Image("x").resizable().scaledToFit().frame(width: 20))
                                 .onTapGesture {
-                                    self.showMonitorDetails = false
+                                    withAnimation(.easeInOut) {
+                                        self.showMonitorDetails = false
+                                    }
                                     self.showSecondPopup = false
                                 }
-                                .offset(x:165,y:-145)
-                            
-                            // Botón para abrir el segundo popup
+                                .offset(x: 165, y: -145)
+
                             Circle()
                                 .fill(Color.white)
                                 .shadow(radius: 3)
                                 .frame(width: 50, height: 50)
                                 .overlay(Image("Logo").resizable().scaledToFit().frame(width: 30).foregroundColor(.white))
                                 .onTapGesture {
-                                    self.showSecondPopup = true
-                                    
-
+                                    withAnimation(.easeOut) {
+                                        self.showSecondPopup = true
+                                    }
                                 }
-                            .offset(y:195)                        }
+                                .offset(y: 195)
+                        }
                     )
-                    .transition(.scale)
-                    .animation(.default, value: showMonitorDetails)
+                    .transition(.asymmetric(insertion: .opacity.combined(with: .scale), removal: .slide.combined(with: .opacity)))
+                    .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: showMonitorDetails)
             }
             
-            // Segundo popup
             if showSecondPopup {
                 Image("popeco")
                     .resizable()
@@ -77,19 +78,21 @@ struct ActiveCameraView: View {
                     .frame(width: 720)
                     .shadow(radius: 3)
                     .offset(y: 415)
+                    .animation(.easeInOut, value: showSecondPopup)
                     .overlay(
                         Circle()
                             .fill(Color.green)
                             .frame(width: 50, height: 50)
-                            .overlay(Image("v")
-                                .resizable().scaledToFit().frame(width: 20))
+                            .overlay(Image("v").resizable().scaledToFit().frame(width: 20))
                             .onTapGesture {
-                                self.showSecondPopup = false
+                                withAnimation(.easeIn) {
+                                    self.showSecondPopup = false
+                                }
                             }
-                            .offset(y:224))
-                    .transition(.scale)
-                    .animation(.default, value: showSecondPopup)
+                            .offset(y: 224))
+                    .transition(.opacity)
             }
+            
         }
     }
 
@@ -125,4 +128,5 @@ struct ActiveCameraView_Previews: PreviewProvider {
         ActiveCameraView()
     }
 }
+
 
